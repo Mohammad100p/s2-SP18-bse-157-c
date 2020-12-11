@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1 Registered Courses
+  - var total=0;
+    table.table
+      thead
+        tr
+            th Course Name
+            th Course ID
+            th Course Duration(Hrs) 
+            th Course FEE($ USD) 
+            th Delete Course/ Edit Course/ Add to Registered Courses
+      tbody
+        each item in cart
+          - total +=Number(item.fee);
+          tr
+            td=item.name
+            td=item.id
+            td=item.duration
+            td=item.fee
+            td 
+              a(href="/products/cart/remove/"+item._id,class="btn btn-danger") Remove
+      tfoot
+        tr
+            td TOTAL
+            td TOTAL
+            td TOTAL
+            td=total
